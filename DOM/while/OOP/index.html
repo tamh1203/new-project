@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+
+        class hinhTron {
+            banKinh;
+            color;
+            constructor(x, y) {
+                this.banKinh = x;
+                this.color = y;
+            }
+            getRadius() {
+                alert(this.banKinh);
+            }
+            getArea() {
+                alert(Math.PI * this.banKinh * this.banKinh)
+            }
+            draw() {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(95, 50, this.banKinh, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        let tron = new hinhTron(50, 'red');
+        let tron2 = new hinhTron(5, 'yellow');
+        tron.draw();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <script>
+
+        ctx.fill();
+        class Rectagle {
+            constructor(x, y, width, height, color) {
+                this.toadoX = x;
+                this.toadoY = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            render() {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.toadoX, this.toadoY, this.width, this.height);
+
+            }
+        }
+        let chuNhat = new Rectagle(10, 40, 140, 160, '#FF00FF');
+        let chuNhat2 = new Rectagle(20, 30, 170, 150, '#800000');
+        chuNhat.render();
+        chuNhat2.render();
+
+    </script>
+</body>
+
+</html>

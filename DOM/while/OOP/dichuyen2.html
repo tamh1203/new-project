@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    canvas {
+        border: 1px solid;
+    }
+</style>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        class HCN {
+            constructor(x, y, r, c) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.c = c;
+                this.speedX = 5;
+                this.speedY = 0;
+            }
+            drawCircle() {
+                let c = document.getElementById("myCanvas");
+                let ctx = c.getContext("2d");
+                ctx.fillStyle = this.c;
+                ctx.clearRect(0, 0, 500, 500);
+                ctx.beginPath();
+                //ctx.fillRect(100, 80, 200, 300);
+                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            move(){
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.drawCircle();
+            }
+        }
+        let hcn1 = new HCN(50, 50, 30, 'red');
+        hcn1.drawCircle();
+        setInterval(() => {
+           hcn1.move();
+        }, 500)
+        window.addEventListener('keydown',(e)=>
+        {
+            if(e.key=='ArrowUp'){
+                hcn1.speedX =5;
+                hcn1.speedY =0;
+            }
+        })
+    </script>
+</body>
+
+</html>
